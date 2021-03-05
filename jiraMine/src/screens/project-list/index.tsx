@@ -5,7 +5,7 @@ import * as qs from 'qs'
 import { cleanObject, useMount, useDebounce } from 'utils/index'
 
 const apiUrl = process.env.REACT_APP_API_URL
-console.log('apiUrl', apiUrl)
+// console.log('apiUrl', apiUrl)
 export const ProjectListScreen = () => {
 
   const [param, setParam] = useState({
