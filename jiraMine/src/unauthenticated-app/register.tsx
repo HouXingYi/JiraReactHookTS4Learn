@@ -7,7 +7,7 @@ import { useAuth } from "context/auth-context";
 
 export const RegisterScreen = () => {
 
-  const {register, user} = useAuth()
+  const {register} = useAuth()
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
