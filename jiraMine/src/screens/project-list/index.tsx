@@ -27,6 +27,7 @@ export const ProjectListScreen = () => {
     //     setList(await response.json())
     //   }
     // })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedParam])
 
   useMount(() => {
