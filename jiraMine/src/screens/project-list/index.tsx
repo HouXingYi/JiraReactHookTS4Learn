@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 // import * as qs from 'qs'
 import { cleanObject, useMount, useDebounce } from 'utils/index'
 import { useHttp } from "utils/http"
+import styled from "@emotion/styled";
 
 // const apiUrl = process.env.REACT_APP_API_URL
 // console.log('apiUrl', apiUrl)
@@ -39,8 +40,16 @@ export const ProjectListScreen = () => {
     // })
   })
 
-  return <div>
-    <SearchPanel users={users} param={param} setParam={setParam}></SearchPanel>
-    <List users={users} list={list}></List>
-  </div>
+  return (
+    <Container>
+      <SearchPanel users={users} param={param} setParam={setParam}></SearchPanel>
+      <List users={users} list={list}></List>
+    </Container>
+  ) 
+  
 }
+
+
+const Container = styled.div`
+  padding: 3.2rem;
+`

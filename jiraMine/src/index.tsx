@@ -5,15 +5,17 @@ import reportWebVitals from "./reportWebVitals";
 
 import { AppProviders } from "context";
 
-import { loadDevTools } from "jira-dev-tool";
+import { DevTools, loadServer } from "jira-dev-tool";
+
 // 务必在jira-dev-tool后面引入
 import "antd/dist/antd.less";
 
 
-loadDevTools(() => {
+loadServer(() => {
   ReactDOM.render(
     <React.StrictMode>
       <AppProviders>
+        <DevTools></DevTools>
         <App />
       </AppProviders>
     </React.StrictMode>,
