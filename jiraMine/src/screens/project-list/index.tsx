@@ -5,10 +5,14 @@ import { useState, useEffect } from "react"
 import { cleanObject, useMount, useDebounce } from 'utils/index'
 import { useHttp } from "utils/http"
 import styled from "@emotion/styled";
+import { Typography } from "antd"
 
 // const apiUrl = process.env.REACT_APP_API_URL
 // console.log('apiUrl', apiUrl)
 export const ProjectListScreen = () => {
+
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<null | Error>(null)
 
   const [param, setParam] = useState({
     name: '',
@@ -22,12 +26,15 @@ export const ProjectListScreen = () => {
   const client = useHttp()
 
   useEffect(() => {
-    client('projects', {data: cleanObject(debouncedParam)}).then(setList)
-    // fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`).then(async (response) => {
-    //   if (response.ok) {
-    //     setList(await response.json())
-    //   }
-    // })
+    setIsLoading(true)
+    // 请求列表
+    client('projects', {data: cleanObject(debouncedParam)})
+    .then(setList)
+    .catch(error => {
+      setList([])
+      setError(error)
+    })
+    .finally(() => setIsLoading(false))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedParam])
 
@@ -43,7 +50,8 @@ export const ProjectListScreen = () => {
   return (
     <Container>
       <SearchPanel users={users} param={param} setParam={setParam}></SearchPanel>
-      <List users={users} list={list}></List>
+      { error ? <Typography.Text type={"danger"}>{error.message}</Typography.Text> : null }
+      <List loading={isLoading} users={users} dataSource={list}></List>
     </Container>
   ) 
   
