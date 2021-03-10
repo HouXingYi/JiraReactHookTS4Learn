@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import { TableProps } from "antd/es/table";
 
 
-interface Project {
+export interface Project {
   id: string;
   name: string;
   personId: string;

@@ -1,57 +1,32 @@
 import { List } from "./list"
 import { SearchPanel } from "./search-panel"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 // import * as qs from 'qs'
-import { cleanObject, useMount, useDebounce } from 'utils/index'
-import { useHttp } from "utils/http"
+import { useDebounce } from 'utils/index'
 import styled from "@emotion/styled";
-import { Typography } from "antd"
+import { ErrorBox } from "components/lib";
+import { useProjects } from "utils/project"
+import { useUsers } from "utils/user";
 
-// const apiUrl = process.env.REACT_APP_API_URL
-// console.log('apiUrl', apiUrl)
 export const ProjectListScreen = () => {
 
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<null | Error>(null)
-
+  // 初始化state
   const [param, setParam] = useState({
     name: '',
     personId: ''
   })
+  // 防止重复点击
   const debouncedParam = useDebounce(param, 200)
-  const [users, setUsers] = useState([])
-
-
-  const [list, setList] = useState([])
-  const client = useHttp()
-
-  useEffect(() => {
-    setIsLoading(true)
-    // 请求列表
-    client('projects', {data: cleanObject(debouncedParam)})
-    .then(setList)
-    .catch(error => {
-      setList([])
-      setError(error)
-    })
-    .finally(() => setIsLoading(false))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedParam])
-
-  useMount(() => {
-    client('users').then(setUsers)
-    // fetch(`${apiUrl}/users`).then(async (response) => {
-    //   if (response.ok) {
-    //     setUsers(await response.json())
-    //   }
-    // })
-  })
+  // 请求项目列表
+  const { isLoading, error, data:list } = useProjects(debouncedParam)
+  // 请求用户列表
+  const { data: users } = useUsers();
 
   return (
     <Container>
-      <SearchPanel users={users} param={param} setParam={setParam}></SearchPanel>
-      { error ? <Typography.Text type={"danger"}>{error.message}</Typography.Text> : null }
-      <List loading={isLoading} users={users} dataSource={list}></List>
+      <SearchPanel users={users || []} param={param} setParam={setParam}></SearchPanel>
+      <ErrorBox error={error} />
+      <List loading={isLoading} users={users || []} dataSource={list || []}></List>
     </Container>
   ) 
   
