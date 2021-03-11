@@ -1,12 +1,13 @@
 import { List } from "./list"
 import { SearchPanel } from "./search-panel"
-import { useState } from "react"
+// import { useState } from "react"
 // import * as qs from 'qs'
 import { useDebounce, useDocumentTitle } from 'utils/index'
 import styled from "@emotion/styled";
 import { ErrorBox } from "components/lib";
 import { useProjects } from "utils/project"
 import { useUsers } from "utils/user";
+import { useUrlQueryParam } from "utils/url";
 
 // import { Helmet } from 'react-helmet'
 
@@ -14,16 +15,20 @@ import { useUsers } from "utils/user";
 export const ProjectListScreen = () => {
 
   // 初始化state
-  const [param, setParam] = useState({
-    name: '',
-    personId: ''
-  })
+  // const [param, setParam] = useState({
+  //   name: '',
+  //   personId: ''
+  // })
+
+  let [param, setParam] = useUrlQueryParam(['name', 'personId'])
+
   // 防止重复点击
   const debouncedParam = useDebounce(param, 200)
   // 请求项目列表
   const { isLoading, error, data:list } = useProjects(debouncedParam)
   // 请求用户列表
   const { data: users } = useUsers();
+  console.log('users', users)
 
   // 标题
   useDocumentTitle('项目列表')
@@ -41,6 +46,9 @@ export const ProjectListScreen = () => {
   ) 
   
 }
+
+
+// ProjectListScreen.whyDidYouRender = true
 
 
 const Container = styled.div`
