@@ -24,11 +24,11 @@ export const ProjectListScreen = () => {
 
   // 防止重复点击
   const debouncedParam = useDebounce(param, 200)
+  console.log('param', param)
   // 请求项目列表
   const { isLoading, error, data:list } = useProjects(debouncedParam)
   // 请求用户列表
   const { data: users } = useUsers();
-  console.log('users', users)
 
   // 标题
   useDocumentTitle('项目列表')
@@ -48,7 +48,8 @@ export const ProjectListScreen = () => {
 }
 
 
-// ProjectListScreen.whyDidYouRender = true
+// 渲染调试用
+ProjectListScreen.whyDidYouRender = false
 
 
 const Container = styled.div`
