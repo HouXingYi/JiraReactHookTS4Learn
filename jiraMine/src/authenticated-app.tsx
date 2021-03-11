@@ -8,41 +8,63 @@ import { Button, Dropdown, Menu } from "antd";
 
 import { ReactComponent as SoftwareLogo } from "assets/software-logo.svg";
 
+import { Navigate, Route, Routes } from 'react-router'
+
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import { ProjectScreen } from "screens/project";
+
+
+
 
 export const AuthenticatedApp = () => {
 
+    return (
+        <Container>
+
+            <PageHeader></PageHeader>
+
+            <Main>
+                <Router>
+                    <Routes>
+                        <Route path={'/projects'} element={<ProjectListScreen></ProjectListScreen>}></Route>
+                        <Route path={'/projects/:projectId/*'} element={<ProjectScreen></ProjectScreen>}></Route>
+                    </Routes>
+                </Router>
+            </Main>
+
+        </Container>
+    )
+}
+
+const PageHeader = () => {
     const {logout, user} = useAuth()
 
     return (
-        <Container>
-            <Header between={true}>
-                <HeaderLeft gap={true}>
-                    <SoftwareLogo width={'18rem'} color={'rgb(38, 132, 255)'}></SoftwareLogo>
-                    <h2>项目</h2>
-                    <h2>用户</h2>
-                </HeaderLeft>
-                <HeaderRight>
-                    <Dropdown
-                        overlay={
-                            <Menu>
-                                <Menu.Item key={"logout"}>
-                                    <Button onClick={logout} type={"link"}>
-                                        登出
-                                    </Button>
-                                </Menu.Item>
-                            </Menu>
-                        }
-                        >
-                        <Button type={"link"} onClick={(e) => e.preventDefault()}>
-                            Hi, {user?.name}
-                        </Button>
-                    </Dropdown>
-                </HeaderRight>
-            </Header>
-            <Main>
-                <ProjectListScreen></ProjectListScreen>   
-            </Main>
-        </Container>
+        <Header between={true}>
+            <HeaderLeft gap={true}>
+                <SoftwareLogo width={'18rem'} color={'rgb(38, 132, 255)'}></SoftwareLogo>
+                <h2>项目</h2>
+                <h2>用户</h2>
+            </HeaderLeft>
+            <HeaderRight>
+                <Dropdown
+                    overlay={
+                        <Menu>
+                            <Menu.Item key={"logout"}>
+                                <Button onClick={logout} type={"link"}>
+                                    登出
+                                </Button>
+                            </Menu.Item>
+                        </Menu>
+                    }
+                    >
+                    <Button type={"link"} onClick={(e) => e.preventDefault()}>
+                        Hi, {user?.name}
+                    </Button>
+                </Dropdown>
+            </HeaderRight>
+        </Header>
     )
 }
 
