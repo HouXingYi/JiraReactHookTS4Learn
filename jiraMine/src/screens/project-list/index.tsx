@@ -7,24 +7,19 @@ import styled from "@emotion/styled";
 import { ErrorBox } from "components/lib";
 import { useProjects } from "utils/project"
 import { useUsers } from "utils/user";
-import { useUrlQueryParam } from "utils/url";
+// import { useUrlQueryParam } from "utils/url";
+import { useProjectsSearchParams } from "./util";
 
 // import { Helmet } from 'react-helmet'
 
 
 export const ProjectListScreen = () => {
 
-  // 初始化state
-  // const [param, setParam] = useState({
-  //   name: '',
-  //   personId: ''
-  // })
-
-  let [param, setParam] = useUrlQueryParam(['name', 'personId'])
+  let [param, setParam] = useProjectsSearchParams()
 
   // 防止重复点击
   const debouncedParam = useDebounce(param, 200)
-  console.log('param', param)
+
   // 请求项目列表
   const { isLoading, error, data:list } = useProjects(debouncedParam)
   // 请求用户列表
