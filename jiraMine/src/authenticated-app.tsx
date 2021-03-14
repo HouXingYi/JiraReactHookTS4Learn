@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { useAuth } from "context/auth-context";
 import { ProjectListScreen } from "screens/project-list";
 
-import { Row } from "components/lib";
+import { ButtonNoPadding, Row } from "components/lib";
 import { Button, Dropdown, Menu } from "antd";
 
 import { ReactComponent as SoftwareLogo } from "assets/software-logo.svg";
@@ -46,9 +46,9 @@ const PageHeader = () => {
     return (
         <Header between={true}>
             <HeaderLeft gap={true}>
-                <Button type={'link'} onClick={resetRoute}>
+                <ButtonNoPadding type={'link'} onClick={resetRoute}>
                     <SoftwareLogo width={'18rem'} color={'rgb(38, 132, 255)'}></SoftwareLogo>
-                </Button>
+                </ButtonNoPadding>
                 <span>项目</span>
                 {/* <ProjectPopover></ProjectPopover> */}
                 <span>用户</span>
