@@ -37,6 +37,13 @@ export const FullPageLoading = () => (
   </FullPage>
 );
 
+export const FullPageErrorFallback = ({ error }: { error: Error | null }) => (
+  <FullPage>
+    <DevTools />
+    <ErrorBox error={error} />
+  </FullPage>
+);
+
 // 类型守卫
 const isError = (value: any): value is Error => value?.message;
 
@@ -50,10 +57,3 @@ export const ErrorBox = ({ error }: { error: unknown }) => {
 export const ButtonNoPadding = styled(Button)`
   padding: 0;
 `;
-
-export const FullPageErrorFallback = ({ error }: { error: Error | null }) => (
-  <FullPage>
-    <DevTools />
-    <ErrorBox error={error} />
-  </FullPage>
-);

@@ -11,7 +11,7 @@ export class ErrorBoundary extends React.Component<
 
   // 当子组件抛出异常，这里会接收到并且调用
   static getDerivedStateFromError(error: Error) {
-    return { error }; // 赋给state
+    return { error };
   }
 
   render() {

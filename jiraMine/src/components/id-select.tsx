@@ -28,23 +28,14 @@ export const IdSelect = (props: IdSelectProps) => {
       onChange={(value) => onChange?.(toNumber(value) || undefined)}
       {...restProps}
     >
-      
-      {/* 默认选项 */}
-      {
-        defaultOptionName ? (
-          <Select.Option value={0}>{defaultOptionName}</Select.Option>
-        ) : null
-      }
-
-      {/* 选项列表 */}
-      {
-        options?.map((option) => (
-          <Select.Option key={option.id} value={option.id}>
-            {option.name}
-          </Select.Option>
-        ))
-      }
-      
+      {defaultOptionName ? (
+        <Select.Option value={0}>{defaultOptionName}</Select.Option>
+      ) : null}
+      {options?.map((option) => (
+        <Select.Option key={option.id} value={option.id}>
+          {option.name}
+        </Select.Option>
+      ))}
     </Select>
   );
 };

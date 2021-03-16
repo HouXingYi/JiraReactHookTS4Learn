@@ -1,15 +1,16 @@
-
-import { Table } from 'antd'
-import {User} from './search-panel'
+import React from "react";
+import { User } from "screens/project-list/search-panel";
+import { Dropdown, Menu, Table } from "antd";
 import dayjs from "dayjs";
-
 import { TableProps } from "antd/es/table";
-import { Link } from 'react-router-dom';
-import { Pin } from 'components/pin';
-import { useEditProject } from 'utils/project';
-import { useProjectsQueryKey } from './util';
+// react-router 和 react-router-dom的关系，类似于 react 和 react-dom/react-native/react-vr...
+import { Link } from "react-router-dom";
+import { Pin } from "components/pin";
+import { useEditProject } from "utils/project";
+import { ButtonNoPadding } from "components/lib";
+import { useProjectModal } from "screens/project-list/util";
 
-
+// TODO 把所有ID都改成number类型
 export interface Project {
   id: number;
   name: string;
@@ -19,82 +20,85 @@ export interface Project {
   created: number;
 }
 
-interface ListProps extends TableProps<Project>{
-  users: User[]
+interface ListProps extends TableProps<Project> {
+  users: User[];
 }
 
 export const List = ({ users, ...props }: ListProps) => {
-
-  const { mutate } = useEditProject(useProjectsQueryKey());
-  const pinProject = (id: number) => (pin: boolean) => mutate({ id, pin }); // 柯里化
-
+  const { mutate } = useEditProject();
+  const { startEdit } = useProjectModal();
+  const pinProject = (id: number) => (pin: boolean) => mutate({ id, pin });
+  const editProject = (id: number) => () => startEdit(id);
   return (
-    <Table 
-      pagination={false} 
-      rowKey={"id"} 
+    <Table
+      rowKey={"id"}
+      pagination={false}
       columns={[
         {
-          title: <Pin checked={true} disabled={true}></Pin>,
+          title: <Pin checked={true} disabled={true} />,
           render(value, project) {
-            return <Pin checked={project.pin} onCheckedChange={pinProject(project.id)}></Pin>
-          }
+            return (
+              <Pin
+                checked={project.pin}
+                onCheckedChange={pinProject(project.id)}
+              />
+            );
+          },
         },
         {
-          title: '名称',
+          title: "名称",
           sorter: (a, b) => a.name.localeCompare(b.name),
           render(value, project) {
-            return <Link to={String(project.id)}>{project.name}</Link>
-            // return <span>111</span>
-          }
+            return <Link to={String(project.id)}>{project.name}</Link>;
+          },
         },
         {
-          title: '部门',
-          dataIndex: 'organization'
+          title: "部门",
+          dataIndex: "organization",
         },
         {
-          title: '负责人',
-          render(value, project) {
-            return(
-              <span>
-                {users.find(user => user.id === project.personId)?.name || '未知'}
-              </span> 
-            )
-          }
-        },
-        {
-          title: '创建时间',
+          title: "负责人",
           render(value, project) {
             return (
               <span>
-                { project.created ? dayjs(project.created).format('YYYY-MM-DD') : '无' }
+                {users.find((user) => user.id === project.personId)?.name ||
+                  "未知"}
               </span>
-            )
-          }
-        }
+            );
+          },
+        },
+        {
+          title: "创建时间",
+          render(value, project) {
+            return (
+              <span>
+                {project.created
+                  ? dayjs(project.created).format("YYYY-MM-DD")
+                  : "无"}
+              </span>
+            );
+          },
+        },
+        {
+          render(value, project) {
+            return (
+              <Dropdown
+                overlay={
+                  <Menu>
+                    <Menu.Item onClick={editProject(project.id)} key={"edit"}>
+                      编辑
+                    </Menu.Item>
+                    <Menu.Item key={"delete"}>删除</Menu.Item>
+                  </Menu>
+                }
+              >
+                <ButtonNoPadding type={"link"}>...</ButtonNoPadding>
+              </Dropdown>
+            );
+          },
+        },
       ]}
       {...props}
-    >
-    </Table>
-
-    // <table>
-    //   <thead>
-    //     <tr>
-    //       <th>名称</th>
-    //       <th>负责人</th>
-    //     </tr>
-    //   </thead>
-    //   <tbody>
-    //     {
-    //       list.map((project) => {
-    //         return (
-    //           <tr key={project.id}>
-    //             <td>{project.name}</td>
-    //             <td>{users.find(user => user.id === project.personId)?.name || '未知'}</td>
-    //           </tr>
-    //         )
-    //       })
-    //     }
-    //   </tbody>
-    // </table>    
-  ) 
-}
+    />
+  );
+};

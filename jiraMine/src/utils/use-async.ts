@@ -1,14 +1,12 @@
 import { useCallback, useReducer, useState } from "react";
 import { useMountedRef } from "utils/index";
 
-// 类型定义
 interface State<D> {
   error: Error | null;
   data: D | null;
   stat: "idle" | "loading" | "error" | "success";
 }
 
-// 初始化状态
 const defaultInitialState: State<null> = {
   stat: "idle",
   data: null,
@@ -31,9 +29,7 @@ export const useAsync = <D>(
   initialState?: State<D>,
   initialConfig?: typeof defaultConfig
 ) => {
-  // 配置合并
   const config = { ...defaultConfig, ...initialConfig };
-
   const [state, dispatch] = useReducer(
     (state: State<D>, action: Partial<State<D>>) => ({ ...state, ...action }),
     {
@@ -41,7 +37,6 @@ export const useAsync = <D>(
       ...initialState,
     }
   );
-  
   const safeDispatch = useSafeDispatch(dispatch);
   // useState直接传入函数的含义是：惰性初始化；所以，要用useState保存函数，不能直接传入函数
   // https://codesandbox.io/s/blissful-water-230u4?file=/src/App.js
