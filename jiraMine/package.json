@@ -65,16 +65,9 @@
     "@types/qs": "^6.9.5",
     "@types/react-helmet": "^6.1.0",
     "eslint-config-prettier": "^6.15.0",
-    "husky": ">=4",
     "json-server": "^0.16.2",
     "lint-staged": ">=10",
     "prettier": "2.1.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "lint-staged": {
     "*.{js,css,md,ts,tsx}": "prettier --write"
