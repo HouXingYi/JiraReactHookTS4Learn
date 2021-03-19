@@ -5,6 +5,7 @@ import './App.css';
 import { Clock } from './components/Clock';
 import { Clock2 } from './components/Clock2';
 import { Button } from './components/Button';
+import { HookDemo } from './components/HookDemo';
 
 import {ThemeContext} from './context'
 
@@ -38,6 +39,10 @@ export default class App extends React.Component {
             )
           }}
         </ThemeContext.Consumer>
+      
+        <span>分割线 ----- hook学习 ------- 测试222</span> <br/>
+        
+        <HookDemo></HookDemo>
 
       </div>
     )
