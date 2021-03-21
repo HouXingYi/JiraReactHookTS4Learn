@@ -1,4 +1,4 @@
-import './App.css';
+import 'App.css';
 
 // 接口
 interface Person {
@@ -28,6 +28,11 @@ function App() {
         <div>{ greeter(user) }</div>
         <div>{ identity(user).firstName + ' + ' + identity(user).lastName}</div>
       </header>
+
+      <div>分割线 ------------------ 分割线 ----------------------</div>
+
+      <div>在这里继续写路由</div>
+
     </div>
   );
 }
