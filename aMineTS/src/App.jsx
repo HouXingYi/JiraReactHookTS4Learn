@@ -15,6 +15,13 @@ import TestHookAndContext from 'components/TestHookAndContext.jsx';
 import { Menu } from 'antd';
 import { useState } from "react";
 
+import { Counter } from 'views/counter/Counter'
+
+import { useSelector } from 'react-redux';
+import {
+  selectCount,
+} from 'views/counter/counterSlice';
+
 
 export default function App() {
 
@@ -58,8 +65,6 @@ export default function App() {
         <br/>
         <br/>
 
-
-
         <Switch>
           <Route path="/about">
             <About />
@@ -78,18 +83,30 @@ export default function App() {
           </Route>
         </Switch>
 
-
       </div>
     </Router>
   );
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <h2>
+    <Counter></Counter>
+  </h2>;
 }
 
 function About() {
-  return <h2>About</h2>;
+  const count = useSelector(selectCount);
+  return (
+    <h2>
+      <div style={{
+        color: 'red', 
+        fontSize: '26px'
+      }}>
+          {count}
+      </div>
+      About
+    </h2>
+  );
 }
 
 function Topics() {
