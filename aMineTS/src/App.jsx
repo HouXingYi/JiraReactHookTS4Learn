@@ -13,7 +13,7 @@ import TestType from 'components/TestType.tsx';
 import TestHookAndContext from 'components/TestHookAndContext.jsx';
 
 import { Menu } from 'antd';
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import { Counter } from 'views/counter/Counter'
 
@@ -96,15 +96,22 @@ function Home() {
 
 function About() {
   const count = useSelector(selectCount);
+
+  const aboutRef = useRef(null)
+
+  function showRef() {
+    console.log('aboutRef.current', aboutRef.current)
+  }
+
   return (
-    <h2>
+    <h2 ref={aboutRef}>
       <div style={{
         color: 'red', 
         fontSize: '26px'
       }}>
           {count}
       </div>
-      About
+      <div onClick={showRef}>About</div>
     </h2>
   );
 }

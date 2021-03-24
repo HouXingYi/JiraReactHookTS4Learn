@@ -24,7 +24,9 @@ export const ProjectListScreen = () => {
   const { open } = useProjectModal();
 
   const [param, setParam] = useProjectsSearchParams();
+
   const { isLoading, error, data: list } = useProjects(useDebounce(param, 200));
+  
   const { data: users } = useUsers();
 
   return (
