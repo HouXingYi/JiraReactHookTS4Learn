@@ -6,7 +6,7 @@ import { PostAuthor } from './PostAuthor'
 import { TimeAgo } from './TimeAgo'
 import { ReactionButtons } from './ReactionButtons'
 import {
-  selectAllPosts,
+  // selectAllPosts,
   fetchPosts,
   selectPostIds,
   selectPostById,
