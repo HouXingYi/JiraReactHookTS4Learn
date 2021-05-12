@@ -1,7 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { getBannerData } from './request/api'
+
 function App() {
+
+  // 获取赛事轮播图数据
+  function getBannerData2 () {
+    const params = {
+      aid: 1
+    }
+    getBannerData(params).then((res) => {
+      console.log(res)
+      // this.bannerList = res.data
+    }).catch(err => {
+      console.log('banner', err)
+    })
+  }
+  getBannerData2()
+
   return (
     <div className="App">
       <header className="App-header">

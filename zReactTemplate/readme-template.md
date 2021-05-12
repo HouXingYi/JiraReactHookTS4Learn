@@ -21,7 +21,26 @@
   package.json中配置proxy
   或者
   用http-proxy-middleware
-  https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually
+  // https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually
+
+  ```
+  const { createProxyMiddleware } = require('http-proxy-middleware');
+
+  module.exports = function(app) {
+    app.use(
+      '/api',
+      createProxyMiddleware({
+        target: 'http://www.goodideatest.com/api',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      })
+    );
+  };
+  ```
+
+4. 
 
 
 
