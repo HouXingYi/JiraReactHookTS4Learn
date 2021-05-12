@@ -8,12 +8,20 @@
 
 # 模板形成记录
 1. create-react-app 创建项目
+  https://create-react-app.dev/docs/getting-started 文档
 
 2. npm run eject 弹出配置
   官方不推荐eject出来，新的create-react-app已经支持babel，sass等
   https://reactjs.org/blog/2018/10/01/create-react-app-v2.html
 
-3. 
+  官方推荐自定义修改react-scripts，而不是eject出来，这样可以复用
+  https://create-react-app.dev/docs/alternatives-to-ejecting
+
+3. 代理配置
+  package.json中配置proxy
+  或者
+  用http-proxy-middleware
+  https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually
 
 
 
