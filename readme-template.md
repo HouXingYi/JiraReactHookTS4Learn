@@ -10,12 +10,14 @@
 1. create-react-app 创建项目
   https://create-react-app.dev/docs/getting-started 文档
 
-2. npm run eject 弹出配置
+2. npm run eject 弹出配置（最好不要eject）
   官方不推荐eject出来，新的create-react-app已经支持babel，sass等
   https://reactjs.org/blog/2018/10/01/create-react-app-v2.html
 
   官方推荐自定义修改react-scripts，而不是eject出来，这样可以复用
   https://create-react-app.dev/docs/alternatives-to-ejecting
+
+  eject的坏处，依赖会多很多
 
 3. 代理配置
   package.json中配置proxy
