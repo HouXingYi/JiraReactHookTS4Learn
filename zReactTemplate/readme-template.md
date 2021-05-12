@@ -9,6 +9,12 @@
 # 模板形成记录
 1. create-react-app 创建项目
 
+2. npm run eject 弹出配置
+  官方不推荐eject出来，新的create-react-app已经支持babel，sass等
+  https://reactjs.org/blog/2018/10/01/create-react-app-v2.html
+
+3. 
+
 
 
 ## jira项目欠缺的功能点
