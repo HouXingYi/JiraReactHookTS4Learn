@@ -25,6 +25,7 @@
   用http-proxy-middleware
   // https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually
 
+  src/setupProxy.js文件
   ```
   const { createProxyMiddleware } = require('http-proxy-middleware');
 
