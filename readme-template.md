@@ -43,15 +43,24 @@
   };
   ```
 
-4. 
+4. 后续
+  加入 dart-sass
+  加入 ts
+  加入 router
+  加入 redux
 
 
 
-## jira项目欠缺的功能点
+
+
+## 模板需要的功能点
 
 * 参考C端移动端做一版
 
-* 移动端CSS
+* 加入TS
+  参考jira如何加入ts的
+
+* 移动端CSS，rem方案
   参考一个其他的慕课网项目，移动端的
 
 * 是使用react create app 还是 用umi（不要用阿里开源项目）
@@ -59,16 +68,20 @@
 * 请求代理
   思路：eject出来，然后配置webpack proxy
   https://github.com/facebook/create-react-app
+  加入setupProxy.js
 
 * 路由需要改成配置式的
+  不需要配置式，再考虑下
 
 * 登录保持和登录鉴权处理，和登录状态持久化处理
+  参考大众点评项目
 
 * css采用sass方案
+  dart-sass
 
 * 全局状态需要用redux方案比较好
   还是用dvajs（不要用阿里开源项目）
 
 * 组件用class组件为主流
-  参考一个其他的慕课网项目，用class组件写的
+  参考大众点评项目，用class组件写的
 

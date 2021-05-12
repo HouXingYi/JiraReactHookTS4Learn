@@ -31,14 +31,20 @@ function App() {
   let [a, seta] = useState(0)
   let [b, setb] = useState(0)
 
+  // mounted生命周期  
+  useEffect(() => {
+    console.log('mounted!')
+    getBannerData2()
+  }, [])
+  
   useEffect(() => {
     // getBannerData2()
-    console.log('a 依赖')
+    console.log('a 依赖 更新')
   }, [a])
 
   useEffect(() => {
     // getBannerData2()
-    console.log('b 依赖')
+    console.log('b 依赖 更新')
   }, [b])
 
   setTimeout(() => {
