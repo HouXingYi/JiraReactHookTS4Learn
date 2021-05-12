@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { formatGetParams } from './utils'
+import { formatGetParams } from './utils.js'
 
 const CancelToken = axios.CancelToken
 const source = CancelToken.source()
@@ -10,7 +10,7 @@ const handleErr = (e) => {
   let content = '网络波动大，请稍后再试'
   let msg = e
   if (e.status === 200) {
-    if (e.errMsg && e.errMsg === 'downloadFile:ok') {
+    if (e.errMsg && e.errMsg == 'downloadFile:ok') {
       return Promise.resolve(e)
     }
     if (e.data) {
@@ -28,7 +28,6 @@ const handleErr = (e) => {
   } else if (e.status === 500) {
     content = '哎呦~小爱连不上网络啦！'
   }
-  console.log('content', content)
   return Promise.reject(msg)
 }
 

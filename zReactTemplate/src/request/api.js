@@ -5,3 +5,7 @@ import http from './request.js'
 export function getBannerData (options) {
   return http.get('/system/wx/advert', { params: options })
 }
+
+export function hot (options) {
+  return http.get('/live/hot', { params: options })
+}
