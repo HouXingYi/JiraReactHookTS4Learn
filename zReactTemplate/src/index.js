@@ -2,11 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import './test.js'
 // import reportWebVitals from './reportWebVitals';
+import { AppProviders } from "./store/provider";
+import "antd/dist/antd.css";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppProviders>
+      <App />
+    </AppProviders>
   </React.StrictMode>,
   document.getElementById('root')
 );

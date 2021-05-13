@@ -44,11 +44,27 @@
   ```
 
 4. 后续
-  加入 dart-sass
-  加入 ts
-  加入 router
-  加入 redux
+  1) 加入 redux（完成，使用Redux Toolkit）
+  
+  2) 加入 router
+  
+  3) 加入 ts
+  4) 配置绝对路径，定制化react-scripts
+  https://blog.csdn.net/weixin_41254345/article/details/105384818
+  5) 加入 dart-sass
+  
 
+
+5. 加入redux
+  有两种方式
+  一种是原始的createStore => dispatch => actions指定type => reducer根据type处理 => 生成新的state，使用react-redux来消费state
+    使用：定义container，使用connect注入state和dispatch
+    结构：要有container的文件夹专门做 HOC connect 用
+  一种是用Redux Toolkit，最新的，推荐用这个
+    Redux Toolkit，封装了action和reducer，并用immer做了不可变处理，再加上redux-thunk
+    
+6. 加入router
+  
 
 
 
