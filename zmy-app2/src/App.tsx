@@ -1,0 +1,14 @@
+import React from 'react';
+import './App.css';
+
+import App2 from './pre/App'
+
+function App() {
+  return (
+    <div className="App">
+      <App2></App2>
+    </div>
+  );
+}
+
+export default App;

@@ -61,19 +61,25 @@
   
   2) 加入 router（完成，使用react-router-dom）
   
-  3) 加入 ts
+  4) 配置绝对路径，定制化react-scripts（完成，用 npm link 处理）
 
-  4) 配置绝对路径，定制化react-scripts
+  5) 加入 ts
 
-  5) 加入 dart-sass
+  6) 加入 dart-sass
   
 
-7. 定制化react-scripts
+7. 定制化react-scripts（ts的情况会出问题，还是放弃这种方案）
   npm link // 将当前文件夹放到全局去
   npm link h-react-scripts // 将当前文件夹中的h-react-scripts指向全局
 
   E:\codeHDD\github\JiraReactHookTS4Learn\zReactTemplate\node_modules\h-react-scripts -> C:\Users\Administrator\AppData\Roaming\npm\node_modules\h-react-scripts -> E:\codeHDD\github\JiraReactHookTS4Learn\h-react-scripts
   
+
+8. 加入ts
+  npx create-react-app my-app --template redux-typescript
+
+
+
 
 
 
