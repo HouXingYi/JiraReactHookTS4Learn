@@ -43,19 +43,7 @@
   };
   ```
 
-4. 后续
-  1) 加入 redux（完成，使用Redux Toolkit）
-  
-  2) 加入 router
-  
-  3) 加入 ts
-  4) 配置绝对路径，定制化react-scripts
-  https://blog.csdn.net/weixin_41254345/article/details/105384818
-  5) 加入 dart-sass
-  
-
-
-5. 加入redux
+4. 加入redux
   有两种方式
   一种是原始的createStore => dispatch => actions指定type => reducer根据type处理 => 生成新的state，使用react-redux来消费state
     使用：定义container，使用connect注入state和dispatch
@@ -63,7 +51,28 @@
   一种是用Redux Toolkit，最新的，推荐用这个
     Redux Toolkit，封装了action和reducer，并用immer做了不可变处理，再加上redux-thunk
     
-6. 加入router
+5. 加入router
+  react-router-dom
+
+
+
+6. 后续
+  1) 加入 redux（完成，使用Redux Toolkit）
+  
+  2) 加入 router（完成，使用react-router-dom）
+  
+  3) 加入 ts
+
+  4) 配置绝对路径，定制化react-scripts
+
+  5) 加入 dart-sass
+  
+
+7. 定制化react-scripts
+  npm link // 将当前文件夹放到全局去
+  npm link h-react-scripts // 将当前文件夹中的h-react-scripts指向全局
+
+  E:\codeHDD\github\JiraReactHookTS4Learn\zReactTemplate\node_modules\h-react-scripts -> C:\Users\Administrator\AppData\Roaming\npm\node_modules\h-react-scripts -> E:\codeHDD\github\JiraReactHookTS4Learn\h-react-scripts
   
 
 
