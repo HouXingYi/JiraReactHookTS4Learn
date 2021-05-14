@@ -1,8 +1,8 @@
 import './App.css';
 
 import AddTodoApp from './components/AddTodoApp'
-// import TestRedux from './container/TestRedux'
-// import { TestHookRedux } from './components/TestHookRedux'
+import TestRedux from './container/TestRedux'
+import { TestHookRedux } from './components/TestHookRedux'
 import HookTest from './components/HookTest'
 import { Button, Row, Col, Divider } from 'antd';
 import { Counter } from '../features/counter/Counter';
@@ -63,7 +63,7 @@ function App() {
             </Route>
 
             <Route path="/testHookRedux">
-              {/* <TestHookRedux></TestHookRedux> */}
+              <TestHookRedux></TestHookRedux>
               <div>TestHookRedux</div>
             </Route>
             <Route path="/hookTest">
@@ -73,7 +73,7 @@ function App() {
               <AddTodoApp></AddTodoApp>
             </Route>
             <Route path="/">
-              {/* <TestRedux></TestRedux> */}
+              <TestRedux></TestRedux>
               <div>TestRedux</div>
             </Route>
           </Switch>
