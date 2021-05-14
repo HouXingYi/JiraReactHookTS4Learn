@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { authActions, login as loginThunk, selectUser } from "../store/auth.slice";
+import { authActions, login as loginThunk, selectUser } from "@/store/auth.slice";
 
 
 export const TestHookRedux = () => {

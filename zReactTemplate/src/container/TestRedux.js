@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-import { authActions, login as loginThunk } from "../store/auth.slice";
+import { authActions, login as loginThunk } from "@/store/auth.slice";
 
 class TestRedux extends Component {
   constructor(props) {
