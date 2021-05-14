@@ -63,12 +63,12 @@
   
   4) 配置绝对路径，定制化react-scripts（完成，用 npm link 处理）
 
-  5) 加入 ts
+  5) 加入 ts（完成，改为eject）
 
   6) 加入 dart-sass
   
 
-7. 定制化react-scripts（ts的情况会出问题，还是放弃这种方案）
+7. 定制化react-scripts（ts的情况会出问题，还是放弃这种方案，用eject算了）
   npm link // 将当前文件夹放到全局去
   npm link h-react-scripts // 将当前文件夹中的h-react-scripts指向全局
 

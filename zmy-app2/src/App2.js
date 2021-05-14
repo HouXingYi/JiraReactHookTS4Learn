@@ -1,11 +1,9 @@
-import './App.css';
-
 import AddTodoApp from './components/AddTodoApp'
 import TestRedux from './container/TestRedux'
 import { TestHookRedux } from './components/TestHookRedux'
 import HookTest from './components/HookTest'
 import { Button, Row, Col, Divider } from 'antd';
-import { Counter } from '../features/counter/Counter';
+import { Counter } from '@/features/counter/Counter';
 
 
 import {

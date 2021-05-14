@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import '@/App.css';
 
-import App2 from './pre/App'
+import App2 from '@/App2'
 
 function App() {
   return (
