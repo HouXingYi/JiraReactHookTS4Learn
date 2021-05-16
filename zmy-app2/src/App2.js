@@ -5,6 +5,8 @@ import HookTest from './components/HookTest'
 import { Button, Row, Col, Divider } from 'antd';
 import { Counter } from '@/features/counter/Counter';
 
+import LearnTs from '@/pages/LearnTs/LearnTs';
+
 
 import {
   BrowserRouter as Router,
@@ -49,6 +51,11 @@ function App() {
                   <Link to="/addTodoApp">AddTodoApp</Link>
                 </Button>
               </Col>
+              <Col span={6}>
+                <Button type="primary">
+                  <Link to="/learnTS">learnTS</Link>
+                </Button>
+              </Col>
             </Row>
           </div>
           
@@ -69,6 +76,9 @@ function App() {
             </Route>
             <Route path="/addTodoApp">
               <AddTodoApp></AddTodoApp>
+            </Route>
+            <Route path="/learnTS">
+              <LearnTs></LearnTs> 
             </Route>
             <Route path="/">
               <TestRedux></TestRedux>
