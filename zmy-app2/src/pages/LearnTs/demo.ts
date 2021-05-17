@@ -9,6 +9,9 @@ demo2()
 const count: number = 123;
 const teacher: string = '1133';
 
+console.log('count', count)
+console.log('teacher', teacher)
+
 // 对象类型
 const teacherObj: {
     name: string;
@@ -27,6 +30,9 @@ const dell: Person = new Person();
 const getTotal: () => number = () => {
     return 123;
 }
+
+console.log('teacherObj', teacherObj, numbers, dell, getTotal)
+
 
 
 // 解构类型注解

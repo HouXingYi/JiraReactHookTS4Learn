@@ -53,6 +53,8 @@ class User implements Person {
     }
 }
 
+console.log('User', User)
+
 // 定义函数的接口类型
 interface SayHi {
     (word: string): string
@@ -62,8 +64,7 @@ const say: SayHi = (word: string) => {
     return word;
 }
 
-
-
+console.log('say', say)
 
 
 export const demo3 = () => {

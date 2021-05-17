@@ -31,6 +31,8 @@ const teacherList: [string, string, number][] = [
     ['Dell', 'male', 18]
 ]
 
+console.log('teacherList', numberArr, arr, objectArr, teacherInfo, teacherList)
+
 
 
 
