@@ -24,7 +24,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    /* Experimental Options */
+    "experimentalDecorators": true, /* 用于指定是否启用实验性的装饰器特性 */
+    "emitDecoratorMetadata": true,  /* 用于指定是否为装饰器提供元数据支持，关于元数据，也是ES6的新标准，可以通过Reflect提供的静态方法获取元数据，如果需要使用Reflect的一些方法，需要引入ES2015.Reflect这个库 */
   },
   "include": [
     "src"

@@ -16,6 +16,7 @@ import Staticclass2 from './static';
 
 import Abstract from './abstract'
 import UnionType from './unionType'
+import Decorator from './decorator'
 
 
 function LearnTs() {
@@ -52,6 +53,11 @@ function LearnTs() {
                   <Link to={`${path}/abstract`}>abstract</Link>
                 </Button>
               </Col>
+              <Col span={6}>
+                <Button type="primary">
+                  <Link to={`${path}/decorator`}>decorator装饰器</Link>
+                </Button>
+              </Col>
             </Row>
           </div>
 
@@ -69,6 +75,9 @@ function LearnTs() {
             </Route>
             <Route path={`${path}/unionType`}>
               <UnionType></UnionType>
+            </Route>
+            <Route path={`${path}/decorator`}>
+              <Decorator></Decorator>
             </Route>
             <Route path={path}>
               <h3>请选择一个模块</h3>
