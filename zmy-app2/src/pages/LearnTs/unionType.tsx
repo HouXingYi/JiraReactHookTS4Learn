@@ -40,8 +40,6 @@ function trigger() {
     add(1, 2)
 
     // 使用 instanceof 来做类型保护
-
-
 }
 
 // 枚举类型
@@ -125,7 +123,8 @@ function demo4() {
             <Button type="primary" onClick={trigger}>点击我</Button> <br/>
             <Button type="primary" onClick={EnumTrigger}>点击我EnumTrigger</Button> <br/>
             <Button type="primary" onClick={typeParameter}>泛型</Button> <br/>
-            <Button type="primary" onClick={classtypeParameter}>类中的泛型</Button>
+            <Button type="primary" onClick={classtypeParameter}>类中的泛型</Button> <br/>
+            {/* <Button type="primary" onClick={namespaceTrigger}>namespace</Button> */}
         </div>
     )
 }
