@@ -69,9 +69,9 @@ export const useDebounce = <V>(value: V, delay?: number) => {
 
   useEffect(() => {
     // 每次在value变化以后，设置一个定时器
-    const timeout = setTimeout(() => setDebouncedValue(value), delay);
+    const timeout = setTimeout(() => { console.log('clear'); setDebouncedValue(value) }, delay);
     // 每次在上一个useEffect处理完以后再运行
-    return () => clearTimeout(timeout);
+    return () => { console.log('clear'); clearTimeout(timeout);}
   }, [value, delay]);
 
   return debouncedValue;
